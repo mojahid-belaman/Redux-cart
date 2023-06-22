@@ -16,7 +16,6 @@ const CartItem = (props) => {
     );
   };
   const removeHandler = () => {
-    console.log(id);
     dispatch(removeProduct(id));
   };
   return (
