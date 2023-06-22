@@ -11,7 +11,6 @@ const ProductItem = (props) => {
       id,
       title,
       price,
-      amount: 1,
     };
     dispatch(addProduct(prodObj));
   };
