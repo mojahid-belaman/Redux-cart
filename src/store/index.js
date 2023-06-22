@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import productReducer from "./product";
+import productSlice from "./product";
+import uiSlicle from "./ui";
 
 const store = configureStore({
-  reducer: { products: productReducer },
+  reducer: { products: productSlice.reducer, ui: uiSlicle.reducer },
 });
 
 export default store;
