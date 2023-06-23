@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   cartIsVisisble: false,
+  notification: null,
 };
 
 const uiSlicle = createSlice({
@@ -11,9 +12,16 @@ const uiSlicle = createSlice({
     toggle(state) {
       state.cartIsVisisble = !state.cartIsVisisble;
     },
+    showNotification(state, action) {
+      state.notification = {
+        status: action.payload.status,
+        title: action.payload.title,
+        message: action.payload.message,
+      };
+    },
   },
 });
 
-export const { toggle } = uiSlicle.actions;
+export const { toggle, showNotification } = uiSlicle.actions;
 
 export default uiSlicle;
