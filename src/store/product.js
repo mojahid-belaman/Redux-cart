@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   products: [],
   totalQte: 0,
+  changed: false,
 };
 
 const productSlice = createSlice({
@@ -16,7 +17,8 @@ const productSlice = createSlice({
     addProduct(state, action) {
       const item = action.payload;
       const checkItem = state.products.find((elem) => elem.id === item.id);
-      state.totalQte++
+      state.changed = true;
+      state.totalQte++;
       if (checkItem) {
         checkItem.quantity++;
         checkItem.totalPrice = checkItem.totalPrice + checkItem.price;
@@ -33,6 +35,7 @@ const productSlice = createSlice({
     removeProduct(state, action) {
       const itemId = action.payload;
       const existItem = state.products.find((elem) => elem.id === itemId);
+      state.changed = true;
       state.totalQte--;
       if (existItem.quantity > 1) {
         existItem.quantity--;
